@@ -1,4 +1,6 @@
 Confu::Application.routes.draw do
+  resources :scans
+
   resources :awards
 
   resources :tokens
