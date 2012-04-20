@@ -3,5 +3,9 @@
 <% unless @award.nil? %>
 	<h2>Tillykke!</h2>
 <% else %>
-	<p>Denne kode er ikke gyldig for dig at bruge</p>
+	<p>Denne kode er ikke gyldig for dig at bruge.</p>
+
+	<% unless @time_until_unlock.nil? %>
+		<p>Du kan scanne denne stregkode igen om <%= number_to_human(@time_until_unlock, :precision => 0) %> minutter.</p>
+	<% end %>
 <% end %>
