@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120420101428) do
+ActiveRecord::Schema.define(:version => 20120420150300) do
 
   create_table "awards", :force => true do |t|
     t.integer  "user_id"
@@ -32,8 +32,9 @@ ActiveRecord::Schema.define(:version => 20120420101428) do
   create_table "tokens", :force => true do |t|
     t.string   "code"
     t.integer  "badge_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+    t.integer  "number_of_times_allowed"
   end
 
   add_index "tokens", ["badge_id"], :name => "index_tokens_on_badge_id"
