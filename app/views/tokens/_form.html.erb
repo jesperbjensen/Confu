@@ -16,6 +16,10 @@
     <%= f.text_field :code %>
   </div>
   <div class="field">
+    <%= f.label :number_of_times_allowed %><br />
+    <%= f.text_field :number_of_times_allowed %>
+  </div>
+  <div class="field">
     <%= f.label :badge_id %><br />
     <%= f.collection_select :badge_id, @badges, :id, :name %>
   </div>
