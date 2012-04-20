@@ -16,8 +16,8 @@
     <%= f.text_field :code %>
   </div>
   <div class="field">
-    <%= f.label :badge %><br />
-    <%= f.text_field :badge %>
+    <%= f.label :badge_id %><br />
+    <%= f.collection_select :badge_id, @badges, :id, :name %>
   </div>
   <div class="actions">
     <%= f.submit %>

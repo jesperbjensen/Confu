@@ -1,4 +1,6 @@
 class TokensController < ApplicationController
+  before_filter :load_selectable_badges, only: [ :new, :edit, :update, :create]
+
   # GET /tokens
   # GET /tokens.json
   def index
@@ -79,5 +81,11 @@ class TokensController < ApplicationController
       format.html { redirect_to tokens_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def load_selectable_badges
+    @badges = Badge.all
   end
 end
