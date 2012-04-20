@@ -20,6 +20,10 @@
     <%= f.text_field :number_of_times_allowed %>
   </div>
   <div class="field">
+    <%= f.label :minimum_time_between_scans_in_minutes %><br />
+    <%= f.text_field :minimum_time_between_scans_in_minutes %>
+  </div>
+  <div class="field">
     <%= f.label :badge_id %><br />
     <%= f.collection_select :badge_id, @badges, :id, :name %>
   </div>
