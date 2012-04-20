@@ -38,18 +38,25 @@ class UsersController < ApplicationController
   end
 
   # POST /users
-  # POST /users.json
   def create
-    @user = User.new(params[:user])
+    
+    # We will first try to find a already existing user
+    @user = User.find_by_email(params[:user][:email])
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
+    # No user found, so we create a new one
+    if @user.nil?
+      @user = User.new(params[:user])
+    end
+    
+    if @user.save
+      unless params[:code].blank?
+        set_current_user(@user.email)
+        redirect_to new_scan_path({code: params[:code]})
       else
-        format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        redirect_to @user, notice: 'User was successfully created.'
       end
+    else
+      render action: "new"
     end
   end
 
