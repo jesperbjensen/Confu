@@ -1,4 +1,12 @@
 Confu::Application.routes.draw do
+  resources :awards
+
+  resources :tokens
+
+  resources :users
+
+  resources :badges
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
