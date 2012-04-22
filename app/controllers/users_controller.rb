@@ -49,8 +49,9 @@ class UsersController < ApplicationController
     end
     
     if @user.save
+      set_current_user(@user.email)
+        
       unless params[:code].blank?
-        set_current_user(@user.email)
         redirect_to new_scan_path({code: params[:code]})
       else
         redirect_to @user, notice: 'User was successfully created.'
