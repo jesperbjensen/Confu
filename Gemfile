@@ -21,6 +21,10 @@ end
 
 gem 'jquery-rails'
 
+group :deployment do
+  gem 'pg'
+end
+
 platforms :mswin do
   gem 'thin'
 end
