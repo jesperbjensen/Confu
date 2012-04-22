@@ -1,0 +1,56 @@
+#container {
+  width: 320px;
+  margin: 0 auto;
+}
+
+h1, h2, .centered {
+  text-align: center;
+}
+
+h1 {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  line-height: 2em;
+}
+
+.well {
+  background-color: #eaeaea;
+  border-radius: 3px;
+}
+
+.portrait {
+  border-radius: 3px;
+}
+
+.fleft {
+  float: left;
+}
+
+.fright {
+  float: right;
+}
+
+.big {
+  font-size: 18px;
+}
+
+.clear {
+  overflow: hidden;
+}
+
+.dimmed {
+  color: #666;
+}
+
+.space-right {
+  margin-right: 5px;
+}
+
+.big-padding {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.padding {
+  padding: 5px;
+}

@@ -7,8 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div id="container">
+    <header>
+      <%= render_profile_small current_user unless current_user.nil? %>
+    </header>
+    <%= yield %>
+  </div>
 </body>
 </html>

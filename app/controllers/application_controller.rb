@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_user_cookie 
 
+  helper_method :current_user
 
   def current_user
   	email = get_user_cookie_value
