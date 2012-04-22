@@ -22,7 +22,9 @@ end
 
 gem 'jquery-rails'
 
-gem 'thin'
+platforms :mswin do
+  gem 'thin'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
