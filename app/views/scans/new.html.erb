@@ -1,11 +1,14 @@
-<h1><%= @badge.name %></h1>
 
 <% unless @award.nil? %>
-	<h2>Tillykke!</h2>
+	<h1>Oplåst:</h1>
+  <h2><%= @badge.name %></h2>
 <% else %>
-	<p>Denne kode er ikke gyldig for dig at bruge.</p>
+  <h1>Æv!</h1>
+  <h2><%= @badge.name %></h2>
 
 	<% unless @time_until_unlock.nil? %>
-		<p>Du kan scanne denne stregkode igen om <%= number_to_human(@time_until_unlock, :precision => 0) %> minutter.</p>
-	<% end %>
+		<p>Er først gyldig igen om <%= number_to_human(@time_until_unlock, :precision => 0) %> minutter.</p>
+	<% else %>
+    <p>Er ikke længere guldig for dig at bruge</p>
+  <% end %>
 <% end %>

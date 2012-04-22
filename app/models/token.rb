@@ -16,6 +16,11 @@ class Token < ActiveRecord::Base
 
   def minutes_until_unlock user
     last_award = user.awards.where("badge_id = ?", badge.id).order("created_at desc").first
+    
+    if last_award.nil?
+      return 0
+    end
+
     min_since_last = (Time.now - last_award.created_at) / 1.minute
     time_to_unlock = minimum_time_between_scans_in_minutes - min_since_last
 

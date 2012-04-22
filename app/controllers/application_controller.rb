@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
 
   def set_current_user email
   	session[:email] = email
-  	set_user_cookies_value = email
+  	set_user_cookies_value email
   end
 
   private

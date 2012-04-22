@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
 	has_many :awards
 
-	validates :email, presence: true
+	validates :email, :name, presence: true
 end
