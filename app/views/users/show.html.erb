@@ -1,10 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="profile big">
+  <div class="name"><%= @user.name %></div>
+  <div class="title"><%= @user.title %></div>
+  <ul class="value-list">
+    <li>
+      <span class="value blue"><%= @user.points %></span>
+      <span class="text">points</span>
+    </li>
+    <li>
+      <span class="value green"><%= @user.awards.count %></span>
+      <span class="text">mærker</span>
+    </li>
+    <li>
+      <span class="value red">0</span>
+      <span class="text">QR-shakes</span>
+    </li>
+    <li>
+      <span class="value twitter-blue">0</span>
+      <span class="text">Tweets</span>
+    </li>
+  </ul>
+</div>
