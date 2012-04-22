@@ -21,7 +21,7 @@ end
 
 gem 'jquery-rails'
 
-group :deployment do
+group :production do
   gem 'pg'
 end
 
