@@ -39,7 +39,7 @@ class ShakesController < ApplicationController
       raise "Not correct parameters"
     end
 
-    if @source_user.id = current_user.id
+    if @source_user.id == current_user.id
       raise "Cannot scan yourself"
     end
 

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :awards
   has_many :shakes, foreign_key: "source_user_id"
-  
+
 	validates :email, :name, presence: true
 
   def points
@@ -23,5 +23,9 @@ class User < ActiveRecord::Base
 
   def shake_code
     "#{id}-#{email.downcase}"
+  end
+
+  def gravatar_code
+    return Digest::MD5.hexdigest(email)
   end
 end
