@@ -1,5 +1,11 @@
 Confu::Application.routes.draw do
 
+  resources :shakes do
+    collection do
+      get :new_request
+    end
+  end
+
   resources :scans
 
   resources :awards

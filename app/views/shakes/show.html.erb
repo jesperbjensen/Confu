@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Source user:</b>
+  <%= @shake.source_user %>
+</p>
+
+<p>
+  <b>Dest user:</b>
+  <%= @shake.dest_user %>
+</p>
+
+
+<%= link_to 'Edit', edit_shake_path(@shake) %> |
+<%= link_to 'Back', shakes_path %>

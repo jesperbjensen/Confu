@@ -1,0 +1,25 @@
+<%= form_for(@shake) do |f| %>
+  <% if @shake.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shake.errors.count, "error") %> prohibited this shake from being saved:</h2>
+
+      <ul>
+      <% @shake.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :source_user %><br />
+    <%= f.text_field :source_user %>
+  </div>
+  <div class="field">
+    <%= f.label :dest_user %><br />
+    <%= f.text_field :dest_user %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120422114827) do
+ActiveRecord::Schema.define(:version => 20120425173508) do
 
   create_table "awards", :force => true do |t|
     t.integer  "user_id"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(:version => 20120422114827) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "shakes", :force => true do |t|
+    t.integer  "source_user_id"
+    t.integer  "dest_user_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "shakes", ["dest_user_id"], :name => "index_shakes_on_dest_user_id"
+  add_index "shakes", ["source_user_id"], :name => "index_shakes_on_source_user_id"
 
   create_table "tokens", :force => true do |t|
     t.string   "code"
