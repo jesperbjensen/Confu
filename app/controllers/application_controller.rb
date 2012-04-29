@@ -23,6 +23,15 @@ class ApplicationController < ActionController::Base
   	set_user_cookies_value email
   end
 
+  protected
+
+  def require_profile
+    if current_user.nil?
+      redirect_to new_user_path({code: params[:code], type: params[:controller]})
+      return true
+    end
+  end
+
   private
 
   def get_user_cookie_value
@@ -35,17 +44,6 @@ class ApplicationController < ActionController::Base
   def set_user_cookies_value email
 		cookies[:login] = { :value => email, :expires => 1.year.from_now }
   end
-
-  protected
-
-  def require_profile
-    if current_user.nil?
-      redirect_to new_user_path({code: params[:code], type: params[:controller]})
-      return true
-    end
-  end
-
-  private
 
   # if there is no cookie on the visitors browser, we will add it from our session
   def set_user_cookie
