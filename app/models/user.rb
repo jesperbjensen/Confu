@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
     unless twitter_name.blank?
       "https://api.twitter.com/1/users/profile_image?screen_name=#{twitter_name}&size=bigger"
     else
-      "http://www.gravatar.com/avatar/#{profile.gravatar_code}.jpg?s=128&d=wavatar"
+      "http://www.gravatar.com/avatar/#{gravatar_code}.jpg?s=128&d=wavatar"
     end
   end
 
