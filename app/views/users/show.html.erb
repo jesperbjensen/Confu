@@ -1,6 +1,6 @@
 <div class="profile big">
   <div class="name"><%= @user.name %></div>
-  <div class="title"><%= "@#{@user.twitter_name}" %> - <%= @user.title %></div>
+  <div class="title"><%= "@#{@user.twitter_name} - " unless @user.twitter_name.nil? %><%= @user.title %></div>
   <ul class="value-list">
     <li class="blue">
       <span class="value"><%= @user.points %></span>
@@ -15,8 +15,21 @@
       <span class="text">QR-shakes</span>
     </li>
     <li class="twitter-blue">
-      <span class="value"><%= @user.tweets.count %></span>
-      <span class="text">Tweets</span>
+      <% unless @user.twitter_name.nil? %>
+        <span class="value"><%= link_to @user.tweets.count, "http://twitter.com/#{@user.twitter_name}" %></span>
+        <span class="text">Tweets</span>
+      <% else %>
+        <span class="value">-</span>
+        <span class="text">Tweets*</span>
+      <% end %>
     </li>
   </ul>
+
+  <% if @user.id == current_user.id %>
+    <% if @user.twitter_name.nil? %>
+      <p>* Du skal angives din <%=link_to "twitter-profil", edit_user_path(@user.id) %>, før der kan gives point for tweets</p>
+    <% end %>
+    <%= link_to "Rediger profil", edit_user_path(@user) %>
+  <% end %>
+
 </div>
