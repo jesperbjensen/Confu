@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120429172420) do
+ActiveRecord::Schema.define(:version => 20120429180235) do
 
   create_table "awards", :force => true do |t|
     t.integer  "user_id"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(:version => 20120429172420) do
 
   create_table "tweets", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "twitter_id"
+    t.decimal  "twitter_id"
     t.string   "text"
     t.datetime "tweet_created_at"
     t.datetime "created_at",       :null => false
