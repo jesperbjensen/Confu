@@ -25,6 +25,14 @@ class User < ActiveRecord::Base
     "#{id}-#{email.downcase}"
   end
 
+  def image_url
+    unless twitter_name.blank?
+      "https://api.twitter.com/1/users/profile_image?screen_name=#{twitter_name}&size=bigger"
+    else
+      "http://www.gravatar.com/avatar/#{profile.gravatar_code}.jpg?s=128&d=wavatar"
+    end
+  end
+
   def gravatar_code
     return Digest::MD5.hexdigest(email)
   end

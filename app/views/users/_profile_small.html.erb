@@ -1,5 +1,5 @@
 <div class="profile small">
-  <img class="portrait" src="http://www.gravatar.com/avatar/<%=profile.gravatar_code%>.jpg?s=128&d=wavatar" />
+  <img class="portrait" src="<%= profile.image_url %>" />
   <span class="name"><%= profile.name %></span>
   <span class="title"><%= profile.title %></span>
   <span class="points"><%= "#{profile.points} point" %></span>
