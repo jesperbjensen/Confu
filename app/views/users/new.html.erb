@@ -1,3 +1,12 @@
 <h1>Velkommmen til Confu!</h1>
-<p>Før du kan få dit badge, skal du lige skrive dit navn og email:</p>
-<%= render 'form' %>
+<div class="padding">
+	<% if @needed_for_badge %>
+		<p>Før du kan få dit badge, skal du lige skrive dit navn og email:</p>
+	<% else %>
+		<p>Skriv dit navn og email, for at oprette en profil:
+	<% end %>
+	<%= render 'form' %>
+	<aside>
+		(Hvis du allerede er oprettet, så brug den samme email, så vil du beholde dine point)
+	</aside>
+</div>
