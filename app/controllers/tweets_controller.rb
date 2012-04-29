@@ -1,12 +1,13 @@
 class TweetsController < ApplicationController
   def check
     last_id = Tweet.maximum('twitter_id')
+    options = {}
 
-    if last_id.nil?
-      tweets = Twitter.search("#cd12")
-    else
-      tweets = Twitter.search("#cd12", since_id: last_id)
+    unless last_id.nil?
+      options.merge!({since_id: last_id})
     end
+    
+    tweets = Twitter.search("#cd12", options)
     
     tweets.each do |tweet|
       t = Tweet.new

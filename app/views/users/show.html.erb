@@ -1,6 +1,6 @@
 <div class="profile big">
   <div class="name"><%= @user.name %></div>
-  <div class="title"><%= @user.title %></div>
+  <div class="title"><%= "@#{@user.twitter_name}" %> - <%= @user.title %></div>
   <ul class="value-list">
     <li class="blue">
       <span class="value"><%= @user.points %></span>
