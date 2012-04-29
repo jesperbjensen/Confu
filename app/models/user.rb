@@ -35,7 +35,8 @@ class User < ActiveRecord::Base
     return Digest::MD5.hexdigest(email)
   end
 
-  def calculate_points
+  def calculate_points not_used=nil
     self.points = (awards.count * 20) + (shakes.count * 20) + (tweets.count * 5)
+    save
   end
 end
