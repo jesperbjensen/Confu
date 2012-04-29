@@ -1,4 +1,6 @@
 class ShakesController < ApplicationController
+  before_filter :require_profile, only: [:new]
+
   def new_request
     @code = current_user.shake_code
     @url = new_shake_url({code: @code})

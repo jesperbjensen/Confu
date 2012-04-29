@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
 
   def require_profile
     if current_user.nil?
-      redirect_to new_user_path({code: params[:code]})
+      redirect_to new_user_path({code: params[:code], type: params[:controller]})
       return true
     end
   end

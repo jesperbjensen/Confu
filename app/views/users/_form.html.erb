@@ -1,5 +1,6 @@
 <%= form_for(@user) do |f| %>
   <%= hidden_field_tag :code, params[:code] %>
+  <%= hidden_field_tag :type, params[:type] %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>

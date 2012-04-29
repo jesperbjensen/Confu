@@ -52,7 +52,13 @@ class UsersController < ApplicationController
       set_current_user(@user.email)
         
       unless params[:code].blank?
-        redirect_to new_scan_path({code: params[:code]})
+        if params[:type] == "scans"
+          redirect_to new_scan_path({code: params[:code]})
+        elsif params[:type] == "shakes"
+          redirect_to new_shake_path({code: params[:code]})
+        else
+          redirect_to @user, notice: 'User was successfully created.'
+        end
       else
         redirect_to @user, notice: 'User was successfully created.'
       end
