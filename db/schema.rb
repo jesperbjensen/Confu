@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120425173508) do
+ActiveRecord::Schema.define(:version => 20120429085413) do
 
   create_table "awards", :force => true do |t|
     t.integer  "user_id"
@@ -50,11 +50,26 @@ ActiveRecord::Schema.define(:version => 20120425173508) do
 
   add_index "tokens", ["badge_id"], :name => "index_tokens_on_badge_id"
 
+  create_table "tweets", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "twitter_id"
+    t.string   "text"
+    t.datetime "tweet_created_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "from_user"
+  end
+
+  add_index "tweets", ["user_id"], :name => "index_tweets_on_user_id"
+
   create_table "users", :force => true do |t|
     t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "name"
+    t.string   "twitter_name"
   end
+
+  add_index "users", ["twitter_name"], :name => "index_users_on_twitter_name"
 
 end

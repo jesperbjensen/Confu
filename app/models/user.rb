@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
 	has_many :awards
   has_many :shakes, foreign_key: "source_user_id"
-
+  has_many :tweets
 	validates :email, :name, presence: true
 
   def points
-    awards.count * 20
+    (awards.count * 20) + (shakes.count * 20) + (tweets.count * 5)
   end
 
   def title

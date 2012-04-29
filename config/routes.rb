@@ -1,5 +1,11 @@
 Confu::Application.routes.draw do
 
+  resources :tweets do
+    collection do
+      get :check
+    end
+  end
+
   resources :shakes do
     collection do
       get :new_request
