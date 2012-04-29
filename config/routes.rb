@@ -18,7 +18,11 @@ Confu::Application.routes.draw do
 
   resources :tokens
 
-  resources :users
+  resources :users do
+    collection do
+      get :recalculate
+    end
+  end
 
   resources :badges
 

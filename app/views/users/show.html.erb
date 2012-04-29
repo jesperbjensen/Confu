@@ -7,11 +7,11 @@
       <span class="text">points</span>
     </li>
     <li class="green">
-      <span class="value"><%= @user.awards.count %></span>
+      <span class="value"><%= link_to @user.awards.count, awards_path(user_id: @user.id) %></span>
       <span class="text">mærker</span>
     </li>
     <li class="red">
-      <span class="value"><%= @user.shakes.count %></span>
+      <span class="value"><%= link_to @user.shakes.count, shakes_path(user_id: @user.id) %></span>
       <span class="text">QR-shakes</span>
     </li>
     <li class="twitter-blue">
@@ -29,7 +29,11 @@
     <% if @user.twitter_name.nil? %>
       <p>* Du skal angives din <%=link_to "twitter-profil", edit_user_path(@user.id) %>, før der kan gives point for tweets</p>
     <% end %>
-    <%= link_to "Rediger profil", edit_user_path(@user) %>
   <% end %>
 
+  <%= render 'position' %>
+
+  <% if @user.id == current_user.id %>
+    <%= link_to "Rediger profil", edit_user_path(@user) %>
+  <% end %>
 </div>

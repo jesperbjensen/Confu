@@ -1,12 +1,10 @@
 class User < ActiveRecord::Base
-	has_many :awards
-  has_many :shakes, foreign_key: "source_user_id"
-  has_many :tweets
+	has_many :awards, :after_add => :calculate_points
+  has_many :shakes, foreign_key: "source_user_id", :after_add => :calculate_points
+  has_many :tweets, :after_add => :calculate_points
 	validates :email, :name, presence: true
 
-  def points
-    (awards.count * 20) + (shakes.count * 20) + (tweets.count * 5)
-  end
+  has_and_belongs_to_many :developers
 
   def title
     case points
@@ -35,5 +33,9 @@ class User < ActiveRecord::Base
 
   def gravatar_code
     return Digest::MD5.hexdigest(email)
+  end
+
+  def calculate_points
+    self.points = (awards.count * 20) + (shakes.count * 20) + (tweets.count * 5)
   end
 end

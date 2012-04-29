@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user.calculate_points
   end
 
   def new
@@ -59,5 +60,13 @@ class UsersController < ApplicationController
     @user.destroy
 
     redirect_to users_url
+  end
+
+  def recalculate
+    User.all.each do |u|
+      u.calculate_points
+    end
+
+    render text: "Done"
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120429085413) do
+ActiveRecord::Schema.define(:version => 20120429172420) do
 
   create_table "awards", :force => true do |t|
     t.integer  "user_id"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20120429085413) do
     t.datetime "updated_at",   :null => false
     t.string   "name"
     t.string   "twitter_name"
+    t.integer  "points"
   end
 
   add_index "users", ["twitter_name"], :name => "index_users_on_twitter_name"
