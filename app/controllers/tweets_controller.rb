@@ -7,7 +7,7 @@ class TweetsController < ApplicationController
       options.merge!({since_id: last_id})
     end
     
-    tweets = Twitter.search("#cd12", options)
+    tweets = Twitter.search("#cdcph", options)
     
     tweets.each do |tweet|
       t = Tweet.new
