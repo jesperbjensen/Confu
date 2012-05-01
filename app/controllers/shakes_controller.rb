@@ -29,4 +29,8 @@ class ShakesController < ApplicationController
       format.json { render json: @shake }
     end
   end
+
+  def index
+    @shakes = current_user.shakes
+  end
 end

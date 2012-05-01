@@ -1,6 +1,6 @@
 <div class="profile big">
   <div class="name"><%= @user.name %></div>
-  <div class="title"><%= "@#{@user.twitter_name} - " unless @user.twitter_name.nil? %><%= @user.title %></div>
+  <div class="title"><%= link_to "@#{@user.twitter_name}", "http://twitter.com/#{@user.twitter_name}" unless @user.twitter_name.nil? %></div>
   <ul class="value-list">
     <li class="blue">
       <span class="value"><%= @user.points %></span>

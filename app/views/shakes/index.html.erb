@@ -1,25 +1,7 @@
-<h1>Listing shakes</h1>
-
-<table>
-  <tr>
-    <th>Source user</th>
-    <th>Dest user</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @shakes.each do |shake| %>
-  <tr>
-    <td><%= shake.source_user %></td>
-    <td><%= shake.dest_user %></td>
-    <td><%= link_to 'Show', shake %></td>
-    <td><%= link_to 'Edit', edit_shake_path(shake) %></td>
-    <td><%= link_to 'Destroy', shake, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
+<h1>QR-Shakes</h1>
+<div class="centered"><%= link_to 'Ny QR-Shake', new_request_shakes_path %></div>
 <br />
-
-<%= link_to 'New Shake', new_shake_path %>
+<br />
+<% @shakes.each do |shake| %>
+  <%= render_profile_small shake.dest_user %>
+<% end %>

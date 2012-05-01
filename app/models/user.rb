@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   end
 
   def calculate_points not_used=nil
-    self.points = (awards.count * 20) + (shakes.count * 20) + (tweets.count * 5)
+    self.points = (awards.count * 20) + (shakes.count * 20) + ([tweets.count,20].min * 5)
     save
   end
 end

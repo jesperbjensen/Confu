@@ -1,6 +1,6 @@
 <div class="profile small">
   <img class="portrait" src="<%= profile.image_url %>" />
-  <span class="name"><%= profile.name %></span>
-  <span class="title"><%= profile.title %></span>
+  <span class="name"><%= link_to profile.name, profile %></span>
+  <span class="title"><%= "@#{profile.twitter_name}" unless profile.twitter_name.nil? %></span>
   <span class="points"><%= "#{profile.points} point" %></span>
 </div>
