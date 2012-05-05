@@ -5,6 +5,12 @@ class TokensController < ApplicationController
     @tokens = Token.all
   end
 
+  def print
+    @token = Token.find(params[:id])
+
+    render layout: nil
+  end
+
   def show
     @token = Token.find(params[:id])
   end

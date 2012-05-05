@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Confu</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body onload="">
+  <div id="container">
+    <h1>Community Day 2012</h1>
+    <img class="padding" src="https://chart.googleapis.com/chart?cht=qr&chl=<%= url_encode new_scan_url({code:@token.code}) %>&chs=310x310&chld=L|0" />
+    <h2 class="centered">Scan og få point!</h2>
+  </div>
+</body>
+</html>

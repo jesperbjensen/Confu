@@ -3,7 +3,7 @@ class Token < ActiveRecord::Base
 
   validates :code, :badge_id, presence: true
 	validates :number_of_times_allowed, :minimum_time_between_scans_in_minutes, :numericality => { :greater_than => 0 }
-  
+
   def available_for user
   	return number_of_times_left(user) > 0 && minutes_until_unlock(user) == 0
   end

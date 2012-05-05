@@ -16,7 +16,11 @@ Confu::Application.routes.draw do
 
   resources :awards
 
-  resources :tokens
+  resources :tokens do
+    member do
+      get :print
+    end
+  end
 
   resources :users do
     collection do
