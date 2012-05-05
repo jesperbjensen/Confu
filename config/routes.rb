@@ -25,6 +25,7 @@ Confu::Application.routes.draw do
   resources :users do
     collection do
       get :recalculate
+      get :scoreboard
     end
   end
 

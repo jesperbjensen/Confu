@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :require_admin, only: [:index, :destroy]
+
   def index
     @users = User.all
   end
@@ -6,6 +8,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @user.calculate_points
+  end
+
+  def scoreboard
+    @users = User.order("points desc")
   end
 
   def new
@@ -47,6 +53,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+
+     @user.id
 
     if @user.update_attributes(params[:user])
       redirect_to @user, notice: 'User was successfully updated.'

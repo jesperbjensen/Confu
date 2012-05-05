@@ -3,7 +3,7 @@
   <div class="title"><%= link_to "@#{@user.twitter_name}", "http://twitter.com/#{@user.twitter_name}" unless @user.twitter_name.blank? %></div>
   <ul class="value-list">
     <li class="blue">
-      <span class="value"><%= @user.points %></span>
+      <span class="value"><%= link_to @user.points, scoreboard_users_path(user_id: @user.id) %></span>
       <span class="text">points</span>
     </li>
     <li class="green">

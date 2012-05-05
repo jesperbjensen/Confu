@@ -1,5 +1,6 @@
 class BadgesController < ApplicationController
-  
+  before_filter :require_admin
+
   def index
     @badges = Badge.all
   end

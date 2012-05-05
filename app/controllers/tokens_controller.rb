@@ -1,5 +1,6 @@
 class TokensController < ApplicationController
   before_filter :load_selectable_badges, only: [ :new, :edit, :update, :create]
+  before_filter :require_admin
 
   def index
     @tokens = Token.all

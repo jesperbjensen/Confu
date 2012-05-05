@@ -33,6 +33,13 @@ module LoginConcern
     end
   end
 
+  def require_admin
+    if current_user.nil? || current_user.email != "deldy@deldysoft.dk"
+      redirect_to new_user_path({code: params[:code], type: params[:controller]})
+      return true
+    end
+  end
+
   private
 
   def get_user_cookie_value
