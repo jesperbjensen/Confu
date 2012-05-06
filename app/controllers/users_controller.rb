@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     @user.calculate_points
   end
 
+  def lolcat
+    @user = User.find(params[:id])
+  end
+
   def scoreboard
     @users = User.order("points desc")
   end

@@ -1,5 +1,6 @@
 <div class="profile big">
   <div class="name"><%= @user.name %></div>
+  <div class="centered"><%= link_to @user.title.humanize, lolcat_user_path(@user) %></div>
   <div class="title"><%= link_to "@#{@user.twitter_name}", "http://twitter.com/#{@user.twitter_name}" unless @user.twitter_name.blank? %></div>
   <ul class="value-list">
     <li class="blue">
@@ -33,7 +34,9 @@
 
   <%= render 'position' %>
 
-  <% if @user.id == current_user.id %>
-    <%= link_to "Rediger profil", edit_user_path(@user) %>
-  <% end %>
+  <div class="centered big">
+    <% if @user.id == current_user.id %>
+      <%= link_to "Rediger profil", edit_user_path(@user) %>
+    <% end %>
+  </div>
 </div>

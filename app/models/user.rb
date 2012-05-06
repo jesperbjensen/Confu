@@ -8,15 +8,18 @@ class User < ActiveRecord::Base
 
   def title
     case points
-      when 0..40 then "The Lolcat"
-      when 41..80 then "The Star Wars Kid"
-      when 81..120 then "The Master of Rickrolling"
-      when 121..180 then "The Monkeydancer"
-      when 181..240 then "The Double Rainbow"
-      when 241..320 then "The Tron Guy"
-      else "Darth Confu"
+      when 0..40 then "The_Scared_Cat"
+      when 41..80 then "Tech_Support_Cat"
+      when 81..120 then "The_Rick_Rolled_Cat"
+      when 121..180 then "The_Suicide_Cat"
+      when 181..240 then "The_Ninja_Cat"
+      when 241..320 then "The_Trollcat"
+      else "Darth_Kitty"
     end
+  end
 
+  def title_image
+    "#{title}.jpg"
   end
 
   def shake_code

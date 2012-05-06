@@ -27,6 +27,10 @@ Confu::Application.routes.draw do
       get :recalculate
       get :scoreboard
     end
+
+    member do
+      get :lolcat
+    end
   end
 
   resources :badges

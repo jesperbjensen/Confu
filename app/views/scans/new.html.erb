@@ -1,15 +1,18 @@
 
 <% unless @award.nil? %>
-	<h1>Oplåst:</h1>
+	<h1><%=["Oplåst", "Awesome", "Achievement unlocked", "Knæhøj karse", "Bred ymer"].sample%>:</h1>
   <h2 class="seal"><%= @badge.name %></h2>
 <% else %>
-  <h1>Æv!</h1>
+  <h1><%=["Æv!", "Nedern", "Fy for faen"].sample %></h1>
   <h2 class="seal"><%= @badge.name %></h2>
   <div class="big-padding centered">
   	<% unless @time_until_unlock.nil? %>
-  		<p>Er først gyldig igen om <%= number_to_human(@time_until_unlock, :precision => 0) %> minutter.</p>
+  		<p class="big">Er først gyldig igen om <%= number_to_human(@time_until_unlock, :precision => 0) %> minutter.</p>
   	<% else %>
-      <p>Er ikke længere guldig for dig at bruge</p>
+      <p class="big">Er ikke længere guldig for dig at bruge</p>
     <% end %>
   </div>
 <% end %>
+<div class="centered big">
+  <%= link_to "Gå til dashboard", current_user %>
+</div>
