@@ -3,9 +3,7 @@ class User < ActiveRecord::Base
   has_many :shakes, foreign_key: "source_user_id", :after_add => :calculate_points
   has_many :tweets, :after_add => :calculate_points
 	validates :email, :name, presence: true
-
-  has_and_belongs_to_many :developers
-
+  
   def title
     case points
       when 0..40 then "The_Scared_Cat"
