@@ -1,6 +1,7 @@
 
 desc "Load tweets"
 task :cron => :environment do
-  require 'TweetsChecker'
-	Tweets.check_tweets
+  require "tweets_checker"
+
+	TweetsChecker.check_tweets
 end

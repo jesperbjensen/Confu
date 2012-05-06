@@ -1,8 +1,8 @@
-require "TweetsChecker"
+require "tweets_checker"
 
 class TweetsController < ApplicationController
   def check
-    Tweets.check_tweets
+    TweetsChecker.check_tweets
 
     render text: "Done"
   end
