@@ -1,4 +1,4 @@
-require "Tweets"
+require "TweetsChecker"
 
 class TweetsController < ApplicationController
   def check
