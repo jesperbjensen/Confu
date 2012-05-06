@@ -3,7 +3,12 @@
 <% @users.each_with_index do |u,i| %>
   <tr class="<%= 'strong' if current_user.id == u.id %>">
     <td><%= i+1 %></td>
-    <td><%= link_to u.name, u %></td>
+    <td>
+    	<img class="portrait" src="<%= u.image_url %>" />
+    </td>
+    <td>
+    	<%= link_to u.name, u %>
+    </td>
     <td><%= u.points %> point</td>
   </tr>
 <% end %>
