@@ -3,10 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .seal {
-  border: 4px solid gray;
+  border: 4px solid green;
   padding: 15px;
   border-radius: 45px;
   font-size: 18px;
   text-align: center;
   margin: 10px auto 10px auto;
+}
+
+.seal.not_owned {
+  border: 4px solid gray;
 }

@@ -4,3 +4,6 @@
 <% @badges.each do |a, awards| %>
   <div class="seal"><small><%=  awards.count %> x</small> <%= awards.first.badge.name %></div>
 <% end %>
+<% @badges_not_owned.each do |badge| %>
+  <div class="seal not_owned"><small>0 x</small> <%= badge.name %></div>
+<% end %>
