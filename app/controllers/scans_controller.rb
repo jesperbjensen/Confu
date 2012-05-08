@@ -12,5 +12,7 @@ class ScansController < ApplicationController
         @time_until_unlock = @token.minutes_until_unlock(current_user)
       end
   	end
+
+    current_user.calculate_points
   end
 end

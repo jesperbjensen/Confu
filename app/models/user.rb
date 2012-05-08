@@ -6,12 +6,12 @@ class User < ActiveRecord::Base
   
   def title
     case points
-      when 0..40 then "The_Scared_Cat"
-      when 41..80 then "Tech_Support_Cat"
-      when 81..120 then "The_Rick_Rolled_Cat"
-      when 121..180 then "The_Suicide_Cat"
-      when 181..240 then "The_Ninja_Cat"
-      when 241..320 then "The_Trollcat"
+      when 0..60 then "The_Scared_Cat"
+      when 61..80 then "Tech_Support_Cat"
+      when 81..100 then "The_Rick_Rolled_Cat"
+      when 101..140 then "The_Suicide_Cat"
+      when 141..180 then "The_Ninja_Cat"
+      when 181..220 then "The_Trollcat"
       else "Darth_Kitty"
     end
   end

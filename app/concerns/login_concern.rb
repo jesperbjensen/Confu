@@ -7,13 +7,18 @@ module LoginConcern
 	end
 
 	def current_user
+    unless @current_user.nil?
+      return @current_user
+    end
+
   	email = get_user_cookie_value
   	if email.blank?
   		email = session[:email]
   	end
 
   	unless email.blank?
-  		return User.find_by_email(email)
+  		@current_user = User.find_by_email(email)
+      return @current_user
   	else
   		return nil
   	end
