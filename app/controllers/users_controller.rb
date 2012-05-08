@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def scoreboard
-    @users = User.order("points desc")
+    @users = User.where("points > 0").order("points desc")
   end
 
   def new
