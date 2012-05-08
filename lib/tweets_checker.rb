@@ -8,7 +8,7 @@ class TweetsChecker
       options.merge!({since_id: last_id})
     end
     
-    tweets = Twitter.search("#itboblefyn", options)
+    tweets = Twitter.search("#cdcph", options)
     
     tweets.each do |tweet|
       t = Tweet.new
