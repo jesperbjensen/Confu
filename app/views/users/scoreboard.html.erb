@@ -8,6 +8,10 @@
     </td>
     <td style="padding:5px;">
     	<%= link_to u.name, u %>
+
+        <% unless u.twitter_name.blank? %>
+            <div><small>@<%= u.twitter_name %></small></div>
+        <% end %>
     </td>
     <td style="padding:5px;"><%= u.points %> point</td>
   </tr>
