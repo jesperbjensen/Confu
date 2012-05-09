@@ -16,7 +16,7 @@
       <span class="text">QR-shakes</span>
     </li>
     <li class="twitter-blue">
-      <% unless @user.twitter_name.nil? %>
+      <% unless @user.twitter_name.blank? %>
         <span class="value"><%= link_to @user.tweets.count, "http://twitter.com/#{@user.twitter_name}" %></span>
         <span class="text">Tweets</span>
       <% else %>
@@ -26,10 +26,8 @@
     </li>
   </ul>
 
-  <% if @user.id == current_user.id %>
-    <% if @user.twitter_name.nil? %>
-      <p>* Du skal angives din <%=link_to "twitter-profil", edit_user_path(@user.id) %>, før der kan gives point for tweets</p>
-    <% end %>
+  <% if @user.twitter_name.blank? %>
+    <p>* Du skal angive din twitter-profil, før der kan gives point for tweets</p>
   <% end %>
 
   <%= render 'position' %>

@@ -38,8 +38,12 @@ module LoginConcern
     end
   end
 
+  def is_admin
+    current_user.email == "deldy@deldysoft.dk"
+  end
+
   def require_admin
-    if current_user.nil? || current_user.email != "deldy@deldysoft.dk"
+    if current_user.nil? || !is_admin
       redirect_to new_user_path({code: params[:code], type: params[:controller]})
       return true
     end

@@ -1,15 +1,15 @@
 <h1>Stilling</h1>
-<table width="100%" border="1" cellspacing="0" cellpadding="5">
+<table width="100%" style="border: 1px solid gray;">
 <% @users.each_with_index do |u,i| %>
   <tr class="<%= 'strong' if current_user.id == u.id %>">
-    <td><%= i+1 %></td>
-    <td>
+    <td style="padding:5px;"><%= i+1 %></td>
+    <td style="padding:5px;">
     	<img class="portrait" src="<%= u.image_url %>" />
     </td>
-    <td>
+    <td style="padding:5px;">
     	<%= link_to u.name, u %>
     </td>
-    <td><%= u.points %> point</td>
+    <td style="padding:5px;"><%= u.points %> point</td>
   </tr>
 <% end %>
 </table>

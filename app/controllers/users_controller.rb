@@ -24,6 +24,10 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+
+    unless current_user.id == @user.id || is_admin
+      raise "Not you"
+    end
   end
 
   def create
@@ -58,7 +62,9 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-     @user.id
+    unless current_user.id == @user.id || is_admin
+      raise "Not you"
+    end
 
     if @user.update_attributes(params[:user])
       redirect_to @user, notice: 'User was successfully updated.'
