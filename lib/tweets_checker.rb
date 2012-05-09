@@ -2,7 +2,7 @@ class TweetsChecker
 
 	def self.check_tweets
 		last_id = Tweet.maximum('twitter_id')
-    options = {}
+    options = {rpp:100}
 
     unless last_id.nil?
       options.merge!({since_id: last_id})
