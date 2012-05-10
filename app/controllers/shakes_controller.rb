@@ -13,8 +13,8 @@ class ShakesController < ApplicationController
 
     @source_user = User.find(user_id)
 
-    unless email == @source_user.email
-      raise "Not correct parameters"
+    unless email.strip == @source_user.email.strip.downcase
+      raise "#{email.strip} #{@source_user.email.strip}"
     end
 
     if @source_user.id == current_user.id
