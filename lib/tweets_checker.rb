@@ -23,7 +23,7 @@ class TweetsChecker
       
     # we need to attach unattached tweets to users
     Tweet.where("user_id is null").all.each do |t|
-      
+      u = nil
       users.each do |u2|
         if u2.twitter_name.downcase == t.from_user.downcase
           u = u2
