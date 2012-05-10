@@ -4,15 +4,43 @@
 <h2><%=@total_tweets %> Tweets</h2>
 <h2><%=@total_qr_shakes %> QR-Shakes</h2>
 
+<h1>Badges</h1>
 <table style="width: 100%;" border="1" cellpadding="5">
   <tr>
     <th>Name</th>
     <th style="text-align: center">Antal</th>
   </tr>
-
 <% @awards_by_badge.each do |row| %>
   <tr>
     <td><%= row["name"] %></td>
+    <td style="text-align: center"><%= row["quantity"] %></td>
+  </tr>
+<% end %>
+</table>
+<h1>Bages per bruger</h1>
+<table style="width: 100%;" border="1" cellpadding="5">
+  <tr>
+    <th>Badge</th>
+    <th style="text-align: center">Bruger</th>
+    <th style="text-align: center">Antal</th>
+  </tr>
+<% @toilet.each do |row| %>
+  <tr>
+    <td style="text-align: center"><%= row["name"] %></td>
+    <td><%= row["username"] %></td>
+    <td style="text-align: center"><%= row["quantity"] %></td>
+  </tr>
+<% end %>
+</table>
+<h1>Top Tweeters</h1>
+<table style="width: 100%;" border="1" cellpadding="5">
+  <tr>
+    <th>Bruger</th>
+    <th style="text-align: center">Antal</th>
+  </tr>
+<% @top_tweeters.each do |row| %>
+  <tr>
+    <td style="text-align: center"><%= row["name"] %></td>
     <td style="text-align: center"><%= row["quantity"] %></td>
   </tr>
 <% end %>
