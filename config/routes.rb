@@ -33,6 +33,13 @@ Confu::Application.routes.draw do
     end
   end
 
+  resources :stats do
+    collection do
+      get :num_awards
+      get :scans_by_hour
+    end
+  end
+
   resources :badges
 
   root :to => 'dashboard#index'

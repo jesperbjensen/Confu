@@ -1,0 +1,19 @@
+<h1>Scans</h1>
+<h2><%=@total_awards%> mærker scannet</h2>
+<h2><%=@total_tweets %> Tweets</h2>
+<h2><%=@total_qr_shakes %> QR-Shakes</h2>
+
+<table style="width: 100%;" border="1" cellpadding="5">
+  <tr>
+    <th>Name</th>
+    <th style="text-align: center">Antal</th>
+  </tr>
+
+<h1>Badges antal gange scannet</h1>
+<% @awards_by_badge.each do |row| %>
+  <tr>
+    <td><%= row[0] %></td>
+    <td style="text-align: center"><%= row[1] %></td>
+  </tr>
+<% end %>
+</table>
