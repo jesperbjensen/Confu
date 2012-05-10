@@ -1,7 +1,8 @@
 class TweetsChecker
 
 	def self.check_tweets
-		last_id = Tweet.maximum('twitter_id')
+    
+    last_id = Tweet.maximum('twitter_id')
     options = {rpp:100}
 
     unless last_id.nil?
@@ -21,9 +22,9 @@ class TweetsChecker
 
     # we need to attach unattached tweets to users
     Tweet.where("user_id is null").all.each do |t|
-      u = User.first("lower(twitter_name) = lower(?)", t.from_user)
+      u = User.first("twitter_name LIKE ?", t.from_user)
       if u.nil?
-        u = User.first("lower(twitter_name) = lower(?)", "@" + t.from_user)
+        u = User.first("twitter_name LIKE ?", "@" + t.from_user)
       end
       unless u.nil?
         t.user = u
