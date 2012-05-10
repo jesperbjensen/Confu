@@ -18,10 +18,18 @@ class TweetsChecker
       t.from_user = tweet.from_user
       t.save 
     end
-
+  
+    users = User.all
+      
     # we need to attach unattached tweets to users
     Tweet.where("user_id is null").all.each do |t|
-      u = User.where("twitter_name ILIKE ?",t.from_user)
+      
+      users.each do |u2|
+        if u2.twitter_name.downcase == t.from_user.downcase
+          u = u2
+        end
+      end
+
       if u.nil?
         u = User.find_by_twitter_name("@" + t.from_user)
       end
