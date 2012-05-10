@@ -38,6 +38,10 @@ class TweetsChecker
         t.save
       end
     end
+
+    users.each do |u3|
+      u3.calculate_points
+    end
 	end
 
 end
